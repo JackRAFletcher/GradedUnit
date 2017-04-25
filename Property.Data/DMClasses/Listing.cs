@@ -6,15 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Property.Data
+namespace Property.Data.DMClasses
 {
-    [Table("Property")]
-    class Property
+    [Table("Listing")]
+    public class Listing
     {
         //property attributes as defined in my normalisation document (3NF)
 
         [Key]
-        public string PropertyNo { get; set; }
+        public string ListingNo { get; set; }
 
         public string StreetAddress { get; set; }
 

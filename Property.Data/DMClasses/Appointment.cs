@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Property.Data
 {
     [Table("Appointment")]
-    class Appointment
+    public class Appointment
     {
         //appointment attributes as defined in my normalisation document
         [Key]

@@ -65,7 +65,7 @@
     <Compile Include="DMClasses\Appointment.cs" />
     <Compile Include="DMClasses\Consultant.cs" />
     <Compile Include="DMClasses\Customer.cs" />
-    <Compile Include="DMClasses\Property.cs" />
+    <Compile Include="DMClasses\Listing.cs" />
     <Compile Include="DMClasses\Viewing.cs" />
   </ItemGroup>
   <ItemGroup>

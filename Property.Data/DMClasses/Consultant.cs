@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Property.Data.DMClasses
 {
     [Table("Consultant")]
-    class Consultant
+    public class Consultant
     {
         [Key]
         public string ConsultantID { get; set; }
