@@ -14,7 +14,7 @@ namespace Property.Data
         //appointment attributes as defined in my normalisation document
         [Key]
         public string AppointmentID { get; set; }
-        [ForeignKey("Property")]
+        [ForeignKey("Listing")]
         public string CustomerID { get; set; }
         [ForeignKey("Consultant")]
         public string ConsultantID { get; set; }

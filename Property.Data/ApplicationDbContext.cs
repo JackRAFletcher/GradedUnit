@@ -12,11 +12,11 @@ namespace Property.Data
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Listing> Listings { get; set; }
-        public DbSet<Consultant> Consultants { get; set; }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Appointment> Appointments { get; set; }
-        public DbSet<Viewing> Viewings { get; set; }
+        public IDbSet<Listing> Listings { get; set; }
+        public IDbSet<Consultant> Consultants { get; set; }
+        public IDbSet<Customer> Customers { get; set; }
+        public IDbSet<Appointment> Appointments { get; set; }
+        public IDbSet<Viewing> Viewings { get; set; }
 
 
 
