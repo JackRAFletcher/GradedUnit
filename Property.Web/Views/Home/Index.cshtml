@@ -6,24 +6,14 @@
 <h1 class="review-group-heading">Properties Currently on Market</h1>
 
 <div class="row">
-    @if (!Model.CurrentListings.Any())
-    {
+  @* @if (!Model.CurrentListings.Any() || Model.CurrentListings.Equals(null))*@
+  @* {*@
         @Html.DisplayFor(x => x.CurrentListings)
-    }
-    else
-    {
-        <div class="col-md-4 col-sm-6 col-xs-12">NO REVIEWS TO DISPLAY</div>
-    }
+   @* } *@
+   @*else*@
+ 
+    <div class="col-md-4 col-sm-6 col-xs-12">No Properties Currently On The Market</div>
+    
+   
 
-</div>
-<div class="row">
-    @if (Model.CurrentListings.Any())
-    {
-        @Html.DisplayFor(x => x.CurrentListings)
-    }
-    else
-    {
-        <div class="col-md-4 col-sm-6 col-xs-12">No Properties Currently On The Market</div>
-       
-    }
 </div>

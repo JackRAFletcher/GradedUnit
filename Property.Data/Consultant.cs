@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Property.Data.DMClasses
+namespace Property.Data
 {
-    [Table("Consultant")]
     public class Consultant
     {
-        [Key]
+        //attributes from normalisation   
         public string ConsultantID { get; set; }
         public string ConsultantName { get; set; }
-
+         //link to assigned property
+        public virtual Listing AssignedListing { get; set; }
     }
 }

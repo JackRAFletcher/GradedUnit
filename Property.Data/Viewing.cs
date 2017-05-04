@@ -8,15 +8,17 @@ using System.Threading.Tasks;
 
 namespace Property.Data.DMClasses
 {
-    [Table("Viewing")]
     public class Viewing
     {
-        [Key]
+        //attributes defined in normalisation
         public string AppointmentID { get; set; }
-        [ForeignKey("Property")]
         public int PropertyNo { get; set; }
         public DateTime ViewingDate { get; set; }
 
+        //link to the listing the viewing is of
+        public virtual Listing Listing { get; set; }
+        //link to the viewer attending the viewing
+        public virtual Customer Viewer { get; set; }
 
 
     }

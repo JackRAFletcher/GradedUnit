@@ -4,13 +4,14 @@ using Property.Data.DMClasses;
 using System;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using Property.Data;
 
 namespace Property.Data.Migrations
 {
 
 
 
-    public sealed class DbMigrationsConfig : DbMigrationsConfiguration<Property.Data.ApplicationDbContext>
+    public sealed class DbMigrationsConfig : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public DbMigrationsConfig()
         {
@@ -21,17 +22,18 @@ namespace Property.Data.Migrations
         protected override void Seed(ApplicationDbContext context)
         {
             if (!context.Users.Any())
-            {
-                //if there are no users then create an admin account
-                var adminEmail = "admin@admin.com";
-                var adminUserName = adminEmail;
-                var adminFullName = "System Administrator";
-                var adminPassword = adminEmail;
-                string adminRole = "Administrator";
-                CreateAdminUser(context, adminEmail, adminUserName, adminFullName, adminPassword, adminRole);
-                CreateSeveralListings(context);
+            { 
+            //if there are no users then create an admin account
+            var adminEmail = "admin@admin.com";
+            var adminUserName = adminEmail;
+            var adminFullName = "System Administrator";
+            var adminPassword = adminEmail;
+            string adminRole = "Administrator";
+            CreateAdminUser(context, adminEmail, adminUserName, adminFullName, adminPassword, adminRole);
+            CreateSeveralListings(context);
             }
         }
+        
 
         private void CreateAdminUser(ApplicationDbContext context, string adminEmail, string adminUserName, string adminFullName, string adminPassword, string adminRole)
         {

@@ -8,16 +8,14 @@ using System.Threading.Tasks;
 
 namespace Property.Data
 {
-    [Table("Appointment")]
     public class Appointment
     {
         //appointment attributes as defined in my normalisation document
-        [Key]
         public string AppointmentID { get; set; }
-        [ForeignKey("Listing")]
-        public string CustomerID { get; set; }
-        [ForeignKey("Consultant")]
-        public string ConsultantID { get; set; }
         public DateTime DateOfConsultation { get; set; }
+
+        //additional attributes
+
+
     }
 }

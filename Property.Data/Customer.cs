@@ -6,12 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Property.Data.DMClasses
+namespace Property.Data
 {
-    [Table("Customer")]
     public class Customer
     {
-        [Key]
+        //attributes from normalisation
         public string CustomerID { get; set; }
         public string Title { get; set; }
         public string FirstName { get; set; }
@@ -19,6 +18,7 @@ namespace Property.Data.DMClasses
         public string EmailAddress { get; set; }
         public string MobileTelephone { get; set; }
         public string HomeTelephone { get; set; }
+        
 
     }
 }

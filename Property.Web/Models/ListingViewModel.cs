@@ -1,4 +1,5 @@
-﻿using Property.Data.DMClasses;
+﻿using Property.Data;
+using Property.Data.DMClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Property.Web.Models
 {
     public class ListingViewModel
     {
+
         public string ListingNo { get; set; }
         public string StreetAddress { get; set; }
         public string Town { get; set; }
