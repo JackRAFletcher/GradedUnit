@@ -8,20 +8,24 @@ using System.Threading.Tasks;
 
 namespace Property.Data
 {
-   
     public class Listing
     {
-        //property attributes as defined in my normalisation document (3NF)
-        public string ListingNo { get; set; }
-        public string StreetAddress { get; set; }
-        public string Town { get; set; }
+        public Listing()
+        {
+            this.forSale = true;
+        }
 
-        //additional attributes
-        public int Price { get; set; }
-        public int NumberOfBedrooms { get; set; }
-        public string TypeOfProperty { get; set; }
+        public int Id { get; set; }
 
-        //link to consultant
-        public virtual Consultant AssignedConsultant { get; set; }
+        [Required]
+        [MaxLength(200)]
+        public string Address { get; set; }
+
+        [MaxLength(200)]
+        public string Price { get; set; }
+
+        public string Description { get; set; }
+
+        public bool forSale { get; set; }       
     }
 }

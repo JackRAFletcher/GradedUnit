@@ -30,16 +30,16 @@ namespace Property.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ListingInputModel model)
         {
-            //code for creating reviews
+            //code for creating
             if (model != null && this.ModelState.IsValid)
             {
                 var l = new Listing()
                 {
-                    StreetAddress = model.StreetAddress,
-                    Town = model.Town
+                    Address = model.StreetAddress,
+                    forSale = model.ForSale
                 };
 
-                //db.Listings.Add(l);
+                db.Listings.Add(l);
                 this.db.SaveChanges();
                 return this.RedirectToAction("Conf");
             }

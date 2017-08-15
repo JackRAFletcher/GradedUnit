@@ -1,15 +1,14 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Property.Data.DMClasses;
 using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using Property.Data;
 
 namespace Property.Data.Migrations
 {
-
-
 
     public sealed class DbMigrationsConfig : DbMigrationsConfiguration<ApplicationDbContext>
     {
@@ -21,20 +20,22 @@ namespace Property.Data.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
+            // Seed initial data only if the database is empty
             if (!context.Users.Any())
-            { 
-            //if there are no users then create an admin account
-            var adminEmail = "admin@admin.com";
-            var adminUserName = adminEmail;
-            var adminFullName = "System Administrator";
-            var adminPassword = adminEmail;
-            string adminRole = "Administrator";
-            CreateAdminUser(context, adminEmail, adminUserName, adminFullName, adminPassword, adminRole);
-            CreateSeveralListings(context);
+            {
+                var adminEmail = "admin@admin.com";
+                var adminUserName = adminEmail;
+                var adminFullName = "System Administrator";
+                var adminPassword = adminEmail;
+                string adminRole = "Administrator";
+                CreateAdminUser(context, adminEmail, adminUserName, adminFullName, adminPassword, adminRole);
+                CreateSeveralReviews(context);
             }
         }
-        
 
+
+
+        //method to create the admin account as well as assign it to the administrator role
         private void CreateAdminUser(ApplicationDbContext context, string adminEmail, string adminUserName, string adminFullName, string adminPassword, string adminRole)
         {
             // Create the "admin" user
@@ -48,6 +49,7 @@ namespace Property.Data.Migrations
             var userManager = new UserManager<ApplicationUser>(userStore);
             userManager.PasswordValidator = new PasswordValidator
             {
+                //password parameters
                 RequiredLength = 1,
                 RequireNonLetterOrDigit = false,
                 RequireDigit = false,
@@ -76,60 +78,23 @@ namespace Property.Data.Migrations
             }
         }
 
-        private void CreateSeveralListings(ApplicationDbContext context)
+        //method to create a number or reviews and save them to the database 
+        private void CreateSeveralReviews(ApplicationDbContext context)
         {
             context.Listings.Add(new Listing()
             {
-
-                StreetAddress = "Seed St 1",
-                Town = "Glasgow"
-
-            });
-
-            context.Listings.Add(new Listing()
-            {
-
-                StreetAddress = "Seed St 2",
-                Town = "Edinburgh"
+                Address = "Seeded address1", Description = "Seeded Description1", forSale = true, Price = "£0,000,001" 
+                
 
             });
-
             context.Listings.Add(new Listing()
             {
+                Address = "Seeded address2", Description = "Seeded Description2", forSale = true, Price = "£0,000,002"
 
-                StreetAddress = "Seed St 3",
-                Town = "Dundee"
-
-            });
-
-            context.Listings.Add(new Listing()
-            {
-
-                StreetAddress = "Seed St 4",
-                Town = "Aberdeen"
-
-            });
-
-            context.Listings.Add(new Listing()
-            {
-
-                StreetAddress = "Seed St 5",
-                Town = "Inverness"
-
-            });
-
-            context.Listings.Add(new Listing()
-            {
-
-                StreetAddress = "Seed St 6",
-                Town = "Stirling"
 
             });
 
             context.SaveChanges();
         }
-
-
     }
 }
-

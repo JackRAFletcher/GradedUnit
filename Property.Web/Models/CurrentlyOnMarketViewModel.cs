@@ -7,6 +7,6 @@ namespace Property.Web.Models
 {
     public class CurrentlyOnMarketViewModel
     {
-        public IEnumerable<ListingViewModel> PropertiesOnMarket { get; set; }
+        public IEnumerable<ListingViewModel> CurrentListings { get; set; }
     }
 }
